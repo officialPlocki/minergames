@@ -1,0 +1,136 @@
+groups:
+  Team:
+	permissions:
+	- system.wartung.ignore
+	- lobby.coins
+	- lobby.build
+  Spieler:
+	permission:
+    options:
+      default: true
+      rank: 700
+      prefix: '&7Spieler &7: &7'
+      inheritance: []
+  Premium:
+	permissions:
+	- Score.Premium
+    options:
+      default: false
+      rank: 650
+      prefix: '&6Premium &7: &6'
+      inheritance: []
+  Diamond:
+	permissions:
+	- Score.Diamond
+    options:
+      default: false
+      rank: 600
+      prefix: '&3Diamond &7: &3'
+      inheritance: []
+  Phoenix:
+	permissions:
+	- Score.Phoenix
+    options:
+      default: false
+      rank: 550
+      prefix: '&c&lPhoenix &c: &c'
+      inheritance: []
+  YT:
+	permissions:
+	- Score.YT
+    options:
+      default: false
+      rank: 500
+      prefix: '&5YT &7: &5'
+      inheritance: []
+  P-Builder:
+	permissions:
+	- Score.pb
+    options:
+      default: false
+      rank: 450
+      prefix: '&aP-Builder &7: &a'
+      inheritance:
+	  - Team
+  Builder:
+	permissions:
+	- Score.builder
+    options:
+      default: false
+      rank: 400
+      prefix: '&aBuilder &7: &a'
+      inheritance:
+	  - Team
+  P-Sup:
+	permissions:
+	- Score.ps
+    options:
+      default: false
+      rank: 350
+      prefix: '&2P-Sup &7: &2'
+      inheritance:
+	  - Team
+  Sup:
+	permissions:
+	- Score.sup
+    options:
+      default: false
+      rank: 300
+      prefix: '&2Sup &7: &2'
+      inheritance:
+	  - Team
+  P-Mod:
+	permissions:
+	- Score.pm
+    options:
+      default: false
+      rank: 250
+      prefix: '&cP-Mod &7: &c'
+      inheritance:
+	  - Team
+  Mod:
+	permissions:
+	- Score.mod
+    options:
+      default: false
+      rank: 200
+      prefix: '&cMod &7: &c'
+      inheritance:
+	  - Team
+  P-Dev:
+	permissions:
+	- Score.pd
+    options:
+      default: false
+      rank: 150
+      prefix: '&bP-Dev &7: &b'
+      inheritance:
+	  - Team
+  Dev:
+	permissions:
+	- Score.dev
+    options:
+      default: false
+      rank: 100
+      prefix: '&bDev &7: &b'
+      inheritance:
+	  - Team
+  Admin:
+	permissions:
+	- lobby.setup
+	- system.wartung
+	- Score.admin
+    options:
+      default: false
+      rank: 50
+      prefix: '&c&lAdmin &7: &c&l'
+      inheritance:
+	  - Team
+  Inhaber:
+	permissions:
+	- 
+    options:
+      rank: 1
+      prefix: '&4&lInhaber &4: &4'
+      inheritance: []
+schema-version: 1
