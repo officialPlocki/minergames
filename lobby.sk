@@ -282,6 +282,9 @@ on join:
 	if player has permission "Score.admin":
 		set score "&e>> &cAdmin" in sidebar of player to 4
 		stop
+	else:
+		set score "&e>> &7Spieler" in sidebar of player to 4
+		stop
 
 on weather change to rain:
 	set weather to clear
