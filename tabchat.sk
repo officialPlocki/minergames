@@ -1,0 +1,111 @@
+every 20 ticks:
+	loop all players:
+		if loop-player has permission "Score.Inhaber":
+			set the loop-player's tablist name to "&a&r&4&lInhaber : %loop-player's name%"
+			set the loop-player's display name to "&4&lInhaber : %loop-player's name%"
+			stop
+		if loop-player has permission "Score.Premium":
+			set the loop-player's tablist name to "&o&e&r&6Premium : %loop-player's name%"
+			set the loop-player's display name to "&6Premium : %loop-player's name%"
+			stop
+		if loop-player has permission "Score.Diamond":
+			set the loop-player's tablist name to "&o&c&r&3Diamond : %loop-player's name%"
+			set the loop-player's display name to "&3Diamond : %loop-player's name%"
+			stop
+		if loop-player has permission "Score.Phoenix":
+			set the loop-player's tablist name to "&o&b&r&cPhoenix : %loop-player's name%"
+			set the loop-player's display name to "&cPhoenix : %loop-player's name%"
+			stop
+		if loop-player has permission "Score.YT":
+			set the loop-player's tablist name to "&o&a&r&5YouTuber : %loop-player's name%"
+			set the loop-player's display name to "&5YouTuber : %loop-player's name%"
+			stop
+		if loop-player has permission "Score.pb":
+			set the loop-player's tablist name to "&n&r&aP-Builder : %loop-player's name%"
+			set the loop-player's display name to "&aP-Builder : %loop-player's name%"
+			stop
+		if loop-player has permission "Score.builder":
+			set the loop-player's tablist name to "&m&r&aBuilder : %loop-player's name%"
+			set the loop-player's display name to "&aBuilder : %loop-player's name%"
+			stop
+		if loop-player has permission "Score.ps":
+			set the loop-player's tablist name to "&l&r&9P-Supporter : %loop-player's name%"
+			set the loop-player's display name to "&9P-Supporter : %loop-player's name%"
+			stop
+		if loop-player has permission "Score.sup":
+			set the loop-player's tablist name to "&k&r&9Supporter : %loop-player's name%"
+			set the loop-player's display name to "&9Supporter : %loop-player's name%"
+			stop
+		if loop-player has permission "Score.pm":
+			set the loop-player's tablist name to "&f&r&cP-Moderator : %loop-player's name%"
+			set the loop-player's display name to "&cP-Moderator : %loop-player's name%"
+			stop
+		if loop-player has permission "Score.mod":
+			set the loop-player's tablist name to "&e&r&cModerator : %loop-player's name%"
+			set the loop-player's display name to "&cModerator : %loop-player's name%"
+			stop
+		if loop-player has permission "Score.pd":
+			set the loop-player's tablist name to "&d&r&bP-Developer : %loop-player's name%"
+			set the loop-player's display name to "&bP-Developer : %loop-player's name%"
+			stop
+		if loop-player has permission "Score.dev":
+			set the loop-player's tablist name to "&c&r&bDeveloper : %loop-player's name%"
+			set the loop-player's display name to "&bDeveloper : %loop-player's name%"
+			stop
+		if loop-player has permission "Score.admin":
+			set the loop-player's tablist name to "&b&r&c&lAdmin : %loop-player's name%"
+			set the loop-player's display name to "&c&lAdmin : %loop-player's name%"
+			stop
+		else:
+			set the loop-player's tablist name to "&o&f&r&7Spieler : %loop-player's name%"
+			set the loop-player's display name to "&7Spieler : %loop-player's name%"
+			stop
+
+on chat:
+	cancel event
+	set {message.%player%} to "%message%"
+	if player has permission "Score.inhaber":
+		broadcast "&4&lInhaber : %player's name% &7>> &f%{message.%player%}%"
+		stop
+	if player has permission "Score.admin":
+		broadcast "&c&lAdmin : %player's name% &7>> &f%{message.%player%}%"
+		stop
+	if player has permission "Score.dev":
+		broadcast "&bDeveloper : %player's name% &7>> &f%{message.%player%}%"
+		stop
+	if player has permission "Score.pd":
+		broadcast "&bP-Developer : %player's name% &7>> &f%{message.%player%}%"
+		stop
+	if player has permission "Score.mod":
+		broadcast "&cModerator : %player's name% &7>> &f%{message.%player%}%"
+		stop
+	if player has permission "Score.pm":
+		broadcast "&cP-Moderator : %player's name% &7>> &f%{message.%player%}%"
+		stop
+	if player has permission "Score.builder":
+		broadcast "&aBuilder : %player's name% &7>> &f%{message.%player%}%"
+		stop
+	if player has permission "Score.pb":
+		broadcast "&aP-Builder : %player's name% &7>> &f%{message.%player%}%"
+		stop
+	if player has permission "Score.sup":
+		broadcast "&9Supporter : %player's name% &7>> &f%{message.%player%}%"
+		stop
+	if player has permission "Score.ps":
+		broadcast "&0P-Supporter : %player's name% &7>> &f%{message.%player%}%"
+		stop
+	if player has permission "Score.yt":
+		broadcast "&5YouTuber : %player's name% &7>> &f%{message.%player%}%"
+		stop
+	if player has permission "Score.phoenix":
+		broadcast "&c&lPhoenix &c: %player's name% &7>> &f%{message.%player%}%"
+		stop
+	if player has permission "Score.diamond":
+		broadcast "&3Diamond : %player's name% &7>> &f%{message.%player%}%"
+		stop
+	if player has permission "Score.premium":
+		broadcast "&6Premium : %player's name% &7>> &f%{message.%player%}%"
+		stop
+	else:
+		broadcast "&7Spieler : %player's name% &7>> &f%{message.%player%}%"
+		stop
