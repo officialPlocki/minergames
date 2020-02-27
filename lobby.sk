@@ -10,6 +10,29 @@ command /setvillager:
 		spawn a villager at player's location
 		set name of last spawned villager to "&6Shop"
 
+command /setshop:
+	permission: lobby.setup
+	permission message: &cKeine Rechte!
+	trigger:
+		set {shop} to player's location
+on join:
+	if {time.%player%} is not set:
+		set {time.%player%} to now
+
+command /removecoins <player> <text>:
+	permission: lobby.coins
+	permission message: &cKeine Rechte!
+	trigger:
+		set {coins.%arg 1%} to {coins.%arg 1%} - arg 2
+		message "&aDu hast dem Spieler %arg 1% %arg% Münzen entfernt!"
+
+command /addcoins <player> <text>:
+	permission: lobby.coins
+	permission message: &cKeine Rechte!
+	trigger:
+		set {coins.%arg 1%} to {coins.%arg 1%} + arg 2
+		message "&aDu hast dem Spieler %arg 1% %arg% Münzen gegeben!"
+
 on rightclick on villager:
 	cancel event
 	wait 3 ticks
@@ -20,7 +43,7 @@ on rightclick on villager:
 	format slot 2 of player with white stained glass pane named "" with lore "" to close
 	format slot 3 of player with golden apple named "&6Premium Rang" with lore "&e50000 Coins" to run [execute player command "/shoprankpremium"]
 	format slot 4 of player with white stained glass pane named "" with lore "" to close
-	format slot 5 of player with diamond named "&9Diamond Rang" with lore "&e100000 Coins" to run [execute player command "/shoprankdiamond"]
+	format slot 5 of player with diamond named "&8Diamond Rang" with lore "&e100000 Coins" to run [execute player command "/shoprankdiamond"]
 	format slot 6 of player with white stained glass pane named "" with lore "" to close
 	format slot 7 of player with white stained glass pane named "" with lore "" to close
 	format slot 8 of player with torch named "&eTaegliche Belohnung" with lore "" to run [execute player command "/belohnung"]
@@ -102,6 +125,43 @@ command /wartung:
 			set {wartung} to true
 			message "{@enablemessage}"
 			stop
+
+on leftclick:
+	if name of player's tool is "&6&lNavigator":
+		open chest with 3 rows named "&6&lNavigator" to player
+		wait 1 ticks
+		format slot 0 of player with white stained glass pane named "" with lore "" to close
+		format slot 1 of player with white stained glass pane named "" with lore "" to close
+		format slot 2 of player with white stained glass pane named "" with lore "" to close
+		format slot 3 of player with white stained glass pane named "" with lore "" to close
+		format slot 4 of player with white stained glass pane named "" with lore "" to close
+		format slot 5 of player with white stained glass pane named "" with lore "" to close
+		format slot 6 of player with white stained glass pane named "" with lore "" to close
+		format slot 7 of player with white stained glass pane named "" with lore "" to close
+		format slot 8 of player with white stained glass pane named "" with lore "" to close
+		format slot 9 of player with white stained glass pane named "" with lore "" to close
+		format slot 10 of player with white stained glass pane named "" with lore "" to close
+		format slot 11 of player with white stained glass pane named "" with lore "" to close
+		format slot 12 of player with white stained glass pane named "" with lore "" to close
+		format slot 13 of player with white stained glass pane named "" with lore "" to close
+		format slot 14 of player with white stained glass pane named "" with lore "" to close
+		format slot 15 of player with white stained glass pane named "" with lore "" to close
+		format slot 16 of player with white stained glass pane named "" with lore "" to close
+		format slot 17 of player with white stained glass pane named "" with lore "" to close
+		format slot 18 of player with white stained glass pane named "" with lore "" to close
+		format slot 19 of player with white stained glass pane named "" with lore "" to close
+		format slot 20 of player with white stained glass pane named "" with lore "" to close
+		format slot 21 of player with white stained glass pane named "" with lore "" to close
+		format slot 22 of player with white stained glass pane named "" with lore "" to close
+		format slot 23 of player with white stained glass pane named "" with lore "" to close
+		format slot 24 of player with white stained glass pane named "" with lore "" to close
+		format slot 25 of player with white stained glass pane named "" with lore "" to close
+		format slot 26 of player with white stained glass pane named "" with lore "" to close
+		format slot 4 of player with beacon named "&bSpawn" with lore "" to close then run [teleport player to {spawn}]
+		format slot 11 of player with diamond pickaxe named "&b&lCB01" with lore "" to close then run [teleport player to {cb01}]
+		format slot 15 of player with wooden axe named "&a&lGunGame" with lore "" to close then run [teleport player to {gg}]
+		format slot 22 of player with golden apple named "&e&lShop & Taegliche Belohnung" with lore "" to close then run [teleport player to {shop}]
+
 
 on rightclick:
 	if name of player's tool is "&6&lNavigator":
@@ -234,14 +294,27 @@ on join:
 
 on damage:
 	cancel event
-	if damage cause is void:
-		teleport victim to {spawn}
 
 on join:
 	set player's max health to 3
 
 on hunger meter change:
 	set player's food level to 10
+
+on leftclick:
+	if name of player's tool is "&6&lTeam":
+		open chest with 1 rows named "&6&lTeam" to player
+		wait 1 ticks
+		format slot 0 of player with white stained glass pane named "" with lore "" to close
+		format slot 1 of player with white stained glass pane named "" with lore "" to close
+		format slot 2 of player with white stained glass pane named "" with lore "" to close
+		format slot 6 of player with white stained glass pane named "" with lore "" to close
+		format slot 7 of player with white stained glass pane named "" with lore "" to close
+		format slot 8 of player with white stained glass pane named "" with lore "" to close
+		format slot 3 of player with skull of "Eli101asYT" parsed as offline player named "&4&lInhaber" with lore "&eEli101asYT" to close
+		format slot 4 of player with skull of "IbimsEinPhilo" parsed as offline player named "&b&lP-Developer" with lore "&eIbimsEinPhilo" to close
+		format slot 5 of player with skull of "xNick_LH" parsed as offline player named "&b&lP-Developer" with lore "&exNick_LH" to close
+
 
 on rightclick:
 	if name of player's tool is "&6&lTeam":
