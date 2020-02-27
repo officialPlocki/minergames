@@ -203,6 +203,11 @@ command /spawn:
 	trigger:
 		teleport player to {spawn}
 
+on join:
+	if {coins.%player%} is not set:
+		set {coins.%player%} to 0
+
+
 on first join:
 	set {coins.%player%} to 0
 
